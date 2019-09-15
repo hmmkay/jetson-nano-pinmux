@@ -46,13 +46,13 @@ make
 cp u-boot.bin /jetson-build/Linux_for_Tegra/bootloader/t210ref/p3450-porg/
 
 echo "=== updating CBoot Pinmux using custom device tree files:\n${2}, and \n${3}\n-------------------------------------------------------"
-cp $2 /jetson-build/Linux_for_Tegra/sources/hardware/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pinmux-p3448-0000-{$NANO_VERSION}.dtsi
-cp $3 /jetson-build/Linux_for_Tegra/sources/hardware/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-gpio-p3448-0000-{$NANO_VERSION}.dtsi
+cp $2 /jetson-build/Linux_for_Tegra/sources/hardware/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-pinmux-p3448-0000-${NANO_VERSION}.dtsi
+cp $3 /jetson-build/Linux_for_Tegra/sources/hardware/nvidia/platform/t210/porg/kernel-dts/porg-platforms/tegra210-porg-gpio-p3448-0000-${NANO_VERSION}.dtsi
 
   
 cd /jetson-build/Linux_for_Tegra/sources/kernel/kernel-4.9
 make ARCH=arm64 tegra_defconfig
 make ARCH=arm64 dtbs
-cp arch/arm64/boot/dts/tegra210-p3448-0000-p3449-0000-{$NANO_VERSION}.dtb ../../../kernel/dtb/
+cp arch/arm64/boot/dts/tegra210-p3448-0000-p3449-0000-${NANO_VERSION}.dtb ../../../kernel/dtb/
 
 echo "Compilation complete. If there were no errors, you can now cd to /jetson-build/Linux_for_Tegra and flash your jetson with 'sudo ./flash.sh jetson-nano-qspi-sd mmcblk0p1'"
